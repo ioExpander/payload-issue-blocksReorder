@@ -1,16 +1,15 @@
 import type { CollectionConfig, Field } from 'payload'
 
 const blockFields: Field[] = [
-            {
-              name: "title",
-              type: "text",
-            },
-            {
-              name: "order",
-              type: "number",
-            },
-          ]
-
+  {
+    name: 'title',
+    type: 'text',
+  },
+  {
+    name: 'order',
+    type: 'number',
+  },
+]
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -26,32 +25,30 @@ export const Pages: CollectionConfig = {
       hooks: {
         beforeChange: [
           ({ value }) => {
-            return value.sort((a,b) => {
-              return (a.order - b.order);
+            return value.sort((a, b) => {
+              return b.order - a.order
             })
-          }
+          },
         ],
       },
       blocks: [
         {
-          slug: "one",
+          slug: 'one',
           fields: blockFields,
         },
         {
-          slug: "two",
+          slug: 'two',
           fields: blockFields,
         },
         {
-          slug: "three",
+          slug: 'three',
           fields: blockFields,
         },
         {
-          slug: "four",
+          slug: 'four',
           fields: blockFields,
-        }
+        },
       ],
     },
   ],
 }
-
-
